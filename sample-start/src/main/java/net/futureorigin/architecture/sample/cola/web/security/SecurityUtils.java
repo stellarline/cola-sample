@@ -1,8 +1,8 @@
 package net.futureorigin.architecture.sample.cola.web.security;
 
+import lombok.extern.slf4j.Slf4j;
 import net.futureorigin.architecture.sample.cola.context.UserContext;
 import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;

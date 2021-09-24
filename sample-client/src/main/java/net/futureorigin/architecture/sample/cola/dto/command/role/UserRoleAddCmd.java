@@ -1,10 +1,10 @@
 package net.futureorigin.architecture.sample.cola.dto.command.role;
 
-import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
 
 /**
  * UserRole

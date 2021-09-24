@@ -1,8 +1,8 @@
 package net.futureorigin.architecture.sample.cola.dto.clientobject.gradecreditrule;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import net.futureorigin.architecture.sample.cola.dto.clientobject.ClientObject;
 import lombok.*;
+import net.futureorigin.architecture.sample.cola.dto.clientobject.ClientObject;
 
 /**
  * GradeCreditRuleListCO

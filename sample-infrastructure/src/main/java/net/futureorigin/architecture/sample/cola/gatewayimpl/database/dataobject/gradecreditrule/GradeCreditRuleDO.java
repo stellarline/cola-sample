@@ -1,9 +1,9 @@
 package net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.gradecreditrule;
 
-import net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.BaseDO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.BaseDO;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

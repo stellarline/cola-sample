@@ -3,7 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.futureorigin.architecture.sample.cola.gatewayimpl.database.mapper.UserMapper">
 
-    <select id="findById" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+    <select id="findById"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
         SELECT u.id,
                u.name,
                u.password,
@@ -28,7 +29,8 @@
           AND u.id = #{id}
     </select>
 
-    <select id="findByMobile" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+    <select id="findByMobile"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
         SELECT u.id,
                u.name,
                u.password,
@@ -53,7 +55,8 @@
           AND u.mobile = #{mobile}
     </select>
 
-    <select id="findBySelective" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+    <select id="findBySelective"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
         SELECT
         u.id,
         u.name,
@@ -86,7 +89,8 @@
         </if>
     </select>
 
-    <update id="updateSelectiveById" parameterType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+    <update id="updateSelectiveById"
+            parameterType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
         UPDATE sample_user
         <set>
             <if test="user.name != null and user.name != ''">

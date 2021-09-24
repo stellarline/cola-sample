@@ -1,10 +1,10 @@
 package net.futureorigin.architecture.sample.cola.dto.clientobject.credit;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import net.futureorigin.architecture.sample.cola.dto.clientobject.ClientObject;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.futureorigin.architecture.sample.cola.dto.clientobject.ClientObject;
 
 import java.util.Date;
 

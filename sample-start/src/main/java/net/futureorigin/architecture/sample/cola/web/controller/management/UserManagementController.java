@@ -3,13 +3,13 @@ package net.futureorigin.architecture.sample.cola.web.controller.management;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import net.futureorigin.architecture.sample.cola.api.UserService;
 import net.futureorigin.architecture.sample.cola.dto.clientobject.user.UserCO;
 import net.futureorigin.architecture.sample.cola.dto.clientobject.user.UserListCO;
-import net.futureorigin.architecture.sample.cola.web.security.SecurityUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import net.futureorigin.architecture.sample.cola.dto.command.user.*;
+import net.futureorigin.architecture.sample.cola.web.security.SecurityUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

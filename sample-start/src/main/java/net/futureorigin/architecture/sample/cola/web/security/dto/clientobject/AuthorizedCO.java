@@ -1,7 +1,7 @@
 package net.futureorigin.architecture.sample.cola.web.security.dto.clientobject;
 
-import net.futureorigin.architecture.sample.cola.dto.clientobject.user.UserCO;
 import lombok.*;
+import net.futureorigin.architecture.sample.cola.dto.clientobject.user.UserCO;
 
 import java.io.Serializable;
 

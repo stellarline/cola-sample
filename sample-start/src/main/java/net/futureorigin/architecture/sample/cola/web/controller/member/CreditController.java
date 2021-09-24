@@ -1,11 +1,11 @@
 package net.futureorigin.architecture.sample.cola.web.controller.member;
 
 import com.alibaba.cola.dto.PageResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import net.futureorigin.architecture.sample.cola.api.CreditRecordService;
 import net.futureorigin.architecture.sample.cola.dto.command.credit.CreditRecordListQry;
 import net.futureorigin.architecture.sample.cola.web.security.SecurityUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

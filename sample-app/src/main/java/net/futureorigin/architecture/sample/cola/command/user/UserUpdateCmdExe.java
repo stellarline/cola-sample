@@ -7,7 +7,6 @@ import net.futureorigin.architecture.sample.cola.dto.command.user.UserUpdateCmd;
 import net.futureorigin.architecture.sample.cola.gatewayimpl.convertor.UserConvertor;
 import net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO;
 import net.futureorigin.architecture.sample.cola.gatewayimpl.database.mapper.UserMapper;
-import net.futureorigin.architecture.sample.cola.gatewayimpl.database.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
 /**

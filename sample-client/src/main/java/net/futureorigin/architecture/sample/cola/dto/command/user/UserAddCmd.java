@@ -1,7 +1,7 @@
 package net.futureorigin.architecture.sample.cola.dto.command.user;
 
-import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
 import lombok.*;
+import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

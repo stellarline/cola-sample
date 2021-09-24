@@ -1,12 +1,12 @@
 package net.futureorigin.architecture.sample.cola.web.aspect;
 
-import com.alibaba.excel.util.DateUtils;
+import cn.hutool.core.date.DateUtil;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import net.futureorigin.architecture.sample.cola.common.util.JsonUtils;
 import net.futureorigin.architecture.sample.cola.context.UserContext;
 import net.futureorigin.architecture.sample.cola.web.security.SecurityUtils;
 import net.futureorigin.architecture.sample.cola.web.util.HostAddressUtils;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -68,7 +68,7 @@ public class RequestLoggingAspect {
             logInfo.setServerPort(request.getServerPort() + "");
             logInfo.setRequestUri(request.getRequestURI());
             logInfo.setRequestQueryString(request.getQueryString());
-            logInfo.setRequestTime(DateUtils.format(new Date(startTimeMillis)));
+            logInfo.setRequestTime(DateUtil.format(new Date(startTimeMillis), "yyyy-MM-dd HH:mm:ss"));
             logInfo.setSpendTimeMillis(System.currentTimeMillis() - startTimeMillis);
             logInfo.setErrMsg(errMsg);
 

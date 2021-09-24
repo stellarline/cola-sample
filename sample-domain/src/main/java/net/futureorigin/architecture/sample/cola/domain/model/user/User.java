@@ -1,10 +1,10 @@
 package net.futureorigin.architecture.sample.cola.domain.model.user;
 
 import com.alibaba.cola.domain.Entity;
-import net.futureorigin.architecture.sample.cola.domain.model.BaseDomain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.futureorigin.architecture.sample.cola.domain.model.BaseDomain;
 
 /**
  * User

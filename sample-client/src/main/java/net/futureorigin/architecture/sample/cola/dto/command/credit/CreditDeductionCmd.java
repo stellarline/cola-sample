@@ -1,9 +1,9 @@
 package net.futureorigin.architecture.sample.cola.dto.command.credit;
 
-import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.futureorigin.architecture.sample.cola.dto.command.CommonCommand;
 
 import javax.validation.constraints.NotNull;
 

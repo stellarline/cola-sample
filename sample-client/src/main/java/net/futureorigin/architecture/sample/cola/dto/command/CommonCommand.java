@@ -2,10 +2,10 @@ package net.futureorigin.architecture.sample.cola.dto.command;
 
 import com.alibaba.cola.dto.Command;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.futureorigin.architecture.sample.cola.context.UserContext;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.futureorigin.architecture.sample.cola.context.UserContext;
 
 /**
  * BaseCommand
