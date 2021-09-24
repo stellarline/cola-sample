@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOGGING_FILE_NAME" value="cola-sample"/>
+    <property name="LOGGING_FILE_PATH" value="../logs/net/futureorigin/architecture/sample/cola/"/>
+
+    <!--控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | %thread |-%-5level %logger{36}:%L - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 日志文件 -->
+    <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | %thread |-%-5level %logger{36}:%L - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <file>${LOGGING_FILE_PATH}/${LOGGING_FILE_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOGGING_FILE_PATH}/%d{yyyy-MM-dd}/${LOGGING_FILE_NAME}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level %logger{36}:%L - %m%n</pattern>
+        </layout>
+    </appender>
+
+    <!-- 异常文件输出 -->
+    <appender name="ERROR_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} | %thread |-%-5level %logger{36}:%L - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <file>${LOGGING_FILE_PATH}/${LOGGING_FILE_NAME}-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOGGING_FILE_PATH}/%d{yyyy-MM-dd}/${LOGGING_FILE_NAME}/error.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level %logger{36}:%L - %m%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOG_FILE"/>
+        <appender-ref ref="ERROR_LOG_FILE"/>
+    </root>
+
+</configuration>

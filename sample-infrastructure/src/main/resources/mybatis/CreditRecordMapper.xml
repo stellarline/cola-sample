@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.futureorigin.architecture.sample.cola.gatewayimpl.database.mapper.CreditRecordMapper">
+
+    <select id="findAll" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.credit.CreditRecordDO">
+        SELECT subqry.id,
+               subqry.creation_time,
+               subqry.creator,
+               subqry.user_id,
+               subqry.credit,
+               subqry.type,
+               subqry.creator_name,
+               u2.mobile AS user_mobile
+        FROM (SELECT cr.*, u.name AS creator_name
+              FROM sample_credit_record cr
+                       JOIN sample_user u
+              WHERE cr.creator = u.id) subqry
+                 JOIN sample_user u2
+        WHERE subqry.user_id = u2.id
+        ORDER BY subqry.modified_time DESC
+    </select>
+
+    <select id="findByUserId" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.credit.CreditRecordDO">
+        SELECT subqry.id,
+               subqry.creation_time,
+               subqry.creator,
+               subqry.user_id,
+               subqry.credit,
+               subqry.type,
+               subqry.creator_name,
+               u2.mobile AS user_mobile
+        FROM (SELECT cr.*, u.name AS creator_name
+              FROM sample_credit_record cr
+                       JOIN sample_user u
+              WHERE cr.creator = u.id) subqry
+                 JOIN sample_user u2
+        WHERE subqry.user_id = u2.id
+          AND subqry.user_id = #{userId}
+
+        ORDER BY subqry.modified_time DESC
+    </select>
+
+    <select id="findByUserMobile"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.credit.CreditRecordDO">
+        SELECT subqry.id,
+               subqry.creation_time,
+               subqry.creator,
+               subqry.user_id,
+               subqry.credit,
+               subqry.type,
+               subqry.creator_name,
+               u2.mobile AS user_mobile
+        FROM (SELECT cr.*, u.name AS creator_name
+              FROM sample_credit_record cr
+                       JOIN sample_user u
+              WHERE cr.creator = u.id) subqry
+                 JOIN sample_user u2
+        WHERE subqry.user_id = u2.id
+          AND u2.mobile = #{userMobile}
+
+        ORDER BY subqry.modified_time DESC
+    </select>
+
+</mapper>

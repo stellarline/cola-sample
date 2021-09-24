@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.futureorigin.architecture.sample.cola.gatewayimpl.database.mapper.UserMapper">
+
+    <select id="findById" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+        SELECT u.id,
+               u.name,
+               u.password,
+               u.creation_time,
+               u.creator,
+               u.modified_time,
+               u.modifier,
+               u.state,
+               u.mobile,
+               u.grade_code,
+               r.plain_text  AS grade_plain_text,
+               c.balance     AS credit_balance,
+               ul.role_codes AS user_role_codes
+        FROM sample_user u
+                 JOIN sample_grade_credit_rule r
+                 JOIN sample_credit c
+                 JOIN sample_user_role ul
+        WHERE 1 = 1
+          AND u.grade_code = r.`code`
+          AND u.id = c.user_id
+          AND u.id = ul.user_id
+          AND u.id = #{id}
+    </select>
+
+    <select id="findByMobile" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+        SELECT u.id,
+               u.name,
+               u.password,
+               u.creation_time,
+               u.creator,
+               u.modified_time,
+               u.modifier,
+               u.state,
+               u.mobile,
+               u.grade_code,
+               r.plain_text  AS grade_plain_text,
+               c.balance     AS credit_balance,
+               ul.role_codes AS user_role_codes
+        FROM sample_user u
+                 JOIN sample_grade_credit_rule r
+                 JOIN sample_credit c
+                 JOIN sample_user_role ul
+        WHERE 1 = 1
+          AND u.grade_code = r.`code`
+          AND u.id = c.user_id
+          AND u.id = ul.user_id
+          AND u.mobile = #{mobile}
+    </select>
+
+    <select id="findBySelective" resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+        SELECT
+        u.id,
+        u.name,
+        u.password,
+        u.creation_time,
+        u.creator,
+        u.modified_time,
+        u.modifier,
+        u.state,
+        u.mobile,
+        u.grade_code,
+        r.plain_text AS grade_plain_text,
+        c.balance AS credit_balance,
+        ul.role_codes AS user_role_codes
+        FROM
+        sample_user u
+        JOIN sample_grade_credit_rule r
+        JOIN sample_credit c
+        JOIN sample_user_role ul
+        WHERE
+        1 = 1
+        AND u.grade_code = r.`code`
+        AND u.id = c.user_id
+        AND u.id = ul.user_id
+        <if test="user.id != null and user.id != 0">
+            AND id = #{user.id}
+        </if>
+        <if test="user.mobile != null and user.mobile != ''">
+            AND mobile = #{user.mobile}
+        </if>
+    </select>
+
+    <update id="updateSelectiveById" parameterType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.user.UserDO">
+        UPDATE sample_user
+        <set>
+            <if test="user.name != null and user.name != ''">
+                name = #{user.name},
+            </if>
+            <if test="user.mobile != null and user.mobile != ''">
+                mobile = #{user.mobile},
+            </if>
+            <if test="user.password != null and user.password != ''">
+                password = #{user.password},
+            </if>
+            <if test="user.gradeCode != null and user.gradeCode != ''">
+                grade_code = #{user.gradeCode},
+            </if>
+            <if test="user.deleted != null">
+                deleted = #{user.deleted},
+            </if>
+            <if test="user.version != null">
+                version = #{user.version},
+            </if>
+            <if test="user.state != null">
+                state = #{user.state},
+            </if>
+            <if test="user.modifier != null">
+                modifier = #{user.modifier},
+            </if>
+            <if test="user.modifiedTime != null">
+                modified_time = #{user.modifiedTime},
+            </if>
+        </set>
+        WHERE
+        id = #{user.id}
+    </update>
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.futureorigin.architecture.sample.cola.gatewayimpl.database.mapper.GradeCreditRuleMapper">
+
+    <select id="findAll"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.gradecreditrule.GradeCreditRuleDO">
+        SELECT *
+        FROM sample_grade_credit_rule
+    </select>
+
+    <select id="findUpgradedGrade"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.gradecreditrule.GradeCreditRuleDO">
+        SELECT *
+        FROM sample_grade_credit_rule
+        WHERE upgrade_limit_credit <![CDATA[ <= ]]> #{currentCredit}
+        ORDER BY grade_order DESC LIMIT 1
+    </select>
+
+    <select id="findByGradeOrder"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.gradecreditrule.GradeCreditRuleDO">
+        SELECT *
+        FROM sample_grade_credit_rule
+        WHERE grade_order = #{gradeOrder}
+    </select>
+
+    <select id="findByGradeCode"
+            resultType="net.futureorigin.architecture.sample.cola.gatewayimpl.database.dataobject.gradecreditrule.GradeCreditRuleDO">
+        SELECT *
+        FROM sample_grade_credit_rule
+        WHERE code = #{gradeCode}
+    </select>
+
+
+</mapper>
