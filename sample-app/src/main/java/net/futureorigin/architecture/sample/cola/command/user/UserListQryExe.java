@@ -30,6 +30,10 @@ public class UserListQryExe {
     }
 
     public PageResponse<UserListCO> execute(UserListQry cmd) {
+        if (true) {
+            throw new IllegalStateException("This is a test exception.");
+        }
+
         PageHelper.startPage(cmd.getPageIndex(), cmd.getPageSize(), true);
 
         UserDO query = new UserDO();

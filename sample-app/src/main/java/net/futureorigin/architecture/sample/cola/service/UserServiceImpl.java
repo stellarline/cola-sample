@@ -116,13 +116,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public PageResponse<UserListCO> list(UserListQry cmd) {
-        try {
-            return listQryCmdExe.execute(cmd);
-        } catch (Exception e) {
-            log.error("查询用户列表失败 : ", e);
-            Response response = getErrorResponse(e);
-            return PageResponse.buildFailure(response.getErrCode(), response.getErrMessage());
-        }
+        return listQryCmdExe.execute(cmd);
     }
 
     @Override

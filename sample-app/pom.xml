@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>net.futureorigin.architecture.sample.cola</groupId>
-            <artifactId>sample-infrastructure</artifactId>
+            <artifactId>sample-infra</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
