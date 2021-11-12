@@ -75,10 +75,9 @@ public class JWTProvider implements InitializingBean {
     }
 
     public Authentication getAuthentication(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(key)
-                .parseClaimsJws(token)
-                .getBody();
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(key).build()
+                .parseClaimsJws(token).getBody();
 
         Collection<? extends GrantedAuthority> authorities =
                 Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
